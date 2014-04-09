@@ -1,4 +1,9 @@
 class City < ActiveRecord::Base
+
+  validates :population, numericality: {
+    :greater_than => 0
+  }
+
   validates :elevation, numericality: {
     :greater_than_or_equal_to => 3315,
     #:if => lambda { |city| city.state == "CO"},
